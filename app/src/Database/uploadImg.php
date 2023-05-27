@@ -28,15 +28,17 @@ move_uploaded_file($fileTmpPath, $imagePath);
 
 # 一种获取文件扩展名的方式
 $imageFileType = pathinfo($imagePath,PATHINFO_EXTENSION);
+$imageFileName = pathinfo($imagePath,PATHINFO_FILENAME);
+$imageFileBaseName = pathinfo($imagePath,PATHINFO_BASENAME);
 # $imageFileType png
 
 # 下面进行改名
 # 注意fileList Array 第一项第二项为空，第三项($fileList[2])才是 1.png
 $fileList = scandir($dirpath);
 $fileList = array_diff($fileList, array('.', '..'));
-$renameTo = $dirpath . count($fileList) . '.' . $imageFileType;
+$renameTo = $dirpath . md5_file($imagePath) . '.' . $imageFileType;
 rename($imagePath,$renameTo);
-echo pathinfo($renameTo,PATHINFO_BASENAME);
+echo pathinfo($renameTo,PATHINFO_BASENAME); # BASENAME - xxx.png
 
 # 也可以用下面这种方式获取文件扩展名
 /* $pattern = "/\//";

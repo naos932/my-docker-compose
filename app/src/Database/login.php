@@ -7,8 +7,8 @@ $password = md5($_POST['password']);
 
 
 include('connect.php');
+$con->query('SET NAMES utf8mb4');
 $q = "select * from `userInfo` where `username` = '$name' and `password` = '$password'";
-$con->query('SET NAMES UTF8');
 $result = $con->query($q);
 
 $obj = $result->fetch_assoc();
