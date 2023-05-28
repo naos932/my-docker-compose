@@ -12,7 +12,9 @@ $q = "select * from `userInfo` where `username` = '$name' and `password` = '$pas
 $result = $con->query($q);
 
 $obj = $result->fetch_assoc();
-$return = array("username"=>$obj['username'], "address"=>$obj['address']);
+if (!!$obj) {
+    $return = array('id'=>$obj['id'], 'username'=>$obj['username'], 'address'=>$obj['address'], 'favorite'=>$obj['favorite'], 'history'=>$obj['history']);
+}
 
 if (mysqli_num_rows($result) > 0) {
     echo json_encode($return);

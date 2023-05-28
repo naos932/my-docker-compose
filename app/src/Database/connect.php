@@ -6,5 +6,5 @@ $con = new mysqli($_ENV['MYSQL_HOST'], $_ENV['MYSQL_USER'], $_ENV['MYSQL_PASSWOR
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
-//echo "连接成功";
+
 ?>
