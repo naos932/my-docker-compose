@@ -11,7 +11,7 @@ $inputData = file_get_contents('php://input');
 $cacheKey = 'postData';
 $cacheData = $redis->get($cacheKey);
 
-if (!!$cacheData) {
+if (false) { // 得想个新的判断方式。
   $data = unserialize($cacheData);
   echo json_encode($data,JSON_UNESCAPED_UNICODE);
 } else {
