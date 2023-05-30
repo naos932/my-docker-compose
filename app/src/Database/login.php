@@ -3,6 +3,7 @@
 header("Content-Type: text/html; charset=utf8");
 
 include('connect.php');
+global $con;
 
 if (!empty($_POST['username']) && !empty($_POST['password'])) {
     $name = $_POST['username'];
@@ -18,7 +19,9 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     }
 
     if (mysqli_num_rows($result) > 0) {
-        echo json_encode($return);
+        if (!empty($return)) {
+            echo json_encode($return);
+        }
     } else {
         echo "用户名或密码错误";
     }
@@ -41,4 +44,3 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
 $con->close();
 
-?>

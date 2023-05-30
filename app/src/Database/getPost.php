@@ -3,15 +3,17 @@
 header('Content-Type: application/json; charset=utf-8');
 
 include('connect.php');
+global $con;
 include('../Cache/connect.php');
+global $redis;
 
 $inputData = file_get_contents('php://input');
 
 # cache
 $cacheKey = 'postData';
-$cacheData = $redis->get($cacheKey);
+#$cacheData = $redis->get($cacheKey);
 
-if (false) { // 得想个新的判断方式。
+/*if (false) { // 得想个新的判断方式。
   $data = unserialize($cacheData);
   echo json_encode($data,JSON_UNESCAPED_UNICODE);
 } else {
@@ -22,11 +24,9 @@ if (false) { // 得想个新的判断方式。
   # use redis cache data
   $redis->setex($cacheKey,3600,serialize($obj));
   echo json_encode($obj,JSON_UNESCAPED_UNICODE);
-}
-if ($inputData === 'del') { 
+}*/
+/*if ($inputData === 'del') {
   $redis->del($cacheKey);
-}
+}*/
 
 $con->close();
-
-?>

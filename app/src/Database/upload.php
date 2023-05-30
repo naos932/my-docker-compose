@@ -3,6 +3,7 @@
 header("Content-Type: text/html; charset=utf8");
 
 include('./connect.php');
+global $con;
 include('./getImages.php');
 
 $imagesURL = $_POST['imagesURL'];
