@@ -12,13 +12,7 @@ $folderName = "images";
 $folder = dirname(getcwd()) . "/$folderName/";
 
 if (!file_exists($folder)) {
-  if (mkdir($folder, 0777, true)) {
-      echo '文件夹创建成功！';
-  } else {
-      echo '无法创建文件夹！';
-  }
-} else {
-  echo '文件夹已经存在！';
+    mkdir($folder, 0777, true);
 }
 
 $dirpath = dirname(getcwd()) . "/$folderName/";

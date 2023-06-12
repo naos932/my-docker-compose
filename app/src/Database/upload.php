@@ -4,7 +4,6 @@ header("Content-Type: text/html; charset=utf8");
 
 include('./connect.php');
 global $con;
-include('./getImages.php');
 
 $imagesURL = $_POST['imagesURL'];
 $uploaderId = $_POST['uploaderId'];
@@ -25,5 +24,3 @@ $con->query("INSERT INTO uploadInfo(imagesURL,uploaderId,uploader,title,introduc
 print_r($_POST);
 
 echo "complete";
-
-?>

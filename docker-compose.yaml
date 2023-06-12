@@ -34,13 +34,13 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
   # redis
-  cache:
-    image: redis:latest
-    command: [ "redis-server", "--appendonly", "yes" ]
-    volumes:
-      - redisdata:/data
-    ports:
-      - "6379:6379"
+  #cache:
+  #  image: redis:latest
+  #  command: [ "redis-server", "--appendonly", "yes" ]
+  #  volumes:
+  #    - redisdata:/data
+  #  ports:
+  #    - "6379:6379"
 volumes:
   mysqldata:
-  redisdata:
+  #redisdata:

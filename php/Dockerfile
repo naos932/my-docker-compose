@@ -33,6 +33,6 @@ COPY ./app/composer.* ./
 
 RUN composer install --prefer-dist --no-scripts --no-progress --no-interaction
 
-COPY ./app .
+# COPY ./app .
 
 RUN composer dump-autoload --optimize

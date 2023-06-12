@@ -28,15 +28,13 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 } else if (!empty($_POST['userId']) && !empty($_POST['postId'])) {
     $userId = $_POST['userId'];
     $postId = $_POST['postId'];
-
     $con->query('SET NAMES utf8mb4');
-    $q = "update userInfo set favorite = concat(favorite, '$postId') where `Id` = '$userId'";
+    $q = "update userInfo set favorite = '$postId' where `Id` = '$userId'";
     $result = $con->query($q);
 } else if (!empty($_POST['userId'])) {
     $userId = $_POST['userId'];
-
     $con->query('SET NAMES utf8mb4');
-    $q = "select favorite from `userInfo` where `Id` = '1'";
+    $q = "select favorite from `userInfo` where `Id` = '$userId'";
     $result = $con->query($q);
     $obj = $result->fetch_all();
     print_r($obj[0][0]);
